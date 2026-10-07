@@ -21,8 +21,8 @@ public class HomePage {
     By Product4 = By.id("add-to-cart-test.allthethings()-t-shirt-(red)");
     By Product5 = By.id("add-to-cart-sauce-labs-backpack");
     By Product6 = By.id("add-to-cart-sauce-labs-fleece-jacket");
-
     By CartIcon = By.xpath("//*[@id=\"shopping_cart_container\"]/a/span");
+    By hamburgermenu = By.id("react-burger-menu-btn");
     
     List<By> products = List.of(Product1, Product2, Product3, Product4, Product5, Product6);
 
@@ -42,7 +42,10 @@ public class HomePage {
 
 		return driver.findElement(productText).getText();
 	}
-	
+	public void VerifyHamburgermenu() {
+		wait.until(ExpectedConditions.elementToBeClickable(hamburgermenu)).click();
+		
+	}
     public void priceLowToHigh() {
 
         wait.until(ExpectedConditions.visibilityOfElementLocated(SelectBox));
